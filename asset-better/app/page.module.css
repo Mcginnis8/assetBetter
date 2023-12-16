@@ -2,33 +2,86 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 6vw;
   min-height: 100vh;
-}
-
-.imageButtonRow {
-  display: flex;
-  justify-content: space-around;
 }
 
 .imageButtonPair {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 350px;
+  border: 1px solid #ccc;
+  background-color: rgb(255, 253, 250);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 
+.imageContainer {
+  border-radius: 0.5rem;
+  margin: 1rem;
+  max-width: 300px;
+  max-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .button {
+  position: relative;
   background-color: black;
   color: white;
-  width: 20vw;
-  height: 10vh;
-  margin: 1rem;
+  width: 80vw;
+  height: 6vh;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  align-items: center;
 }
 
 .button:hover {
   background-color: white;
   color: black;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.customLabel {
+  color: black;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.customInput {
+  background-color: rgb(255, 253, 250);
+  border:none;
+  border-bottom: 1px solid black;
+  color: black;
+  font-size: 1.5rem;
+  margin-top: 0.8rem;
+  outline: none;
+}
+
+.customInput:focus {
+  border-bottom: 2px solid black;
 }
