@@ -3,7 +3,7 @@ import React, { useState, useContext, useEffect, useRef } from 'react';
 import styles from './page.module.css'
 import FormValuesContext from './FormValuesContext.client';
 
-const CarForm = () => {
+const BankForm = () => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const { formValues, dispatchFormValues } = useContext(FormValuesContext);
   const formRef = useRef(null);
@@ -22,7 +22,7 @@ const CarForm = () => {
       const name = form.elements.name.value;
       const homeValue = form.elements.assetWorth.value;
       const avgYearlyChange = form.elements.averageChange.value;
-      const assetType = 'car';
+      const assetType = 'bank';
   
       if (!name || !homeValue || !avgYearlyChange) {
         setErrorMessage('Please fill all fields');
@@ -49,7 +49,7 @@ const CarForm = () => {
                 <input className={styles.customInput} type="text" name="name" style={{ width: '80%' }} required />
               </label>
               <label className={styles.customLabel}>
-                Car Value:
+                Account Value:
                 <input className={styles.customInput} type="number" name="assetWorth" style={{ width: '80%' }} required />
               </label>
               <label className={styles.customLabel}>
@@ -61,7 +61,7 @@ const CarForm = () => {
               </label>
             </form>
           ) : (
-            <img src="/images/car.jpg" alt="Car" width={300} height={300}></img>
+            <img src="/images/bank.jpg" alt="PiggyBank" width={300} height={300}></img>
           )}
         </div>
         {errorMessage && <div style={{ color: 'red', fontSize: '1.5rem' }}>{errorMessage}</div>}
@@ -75,11 +75,11 @@ const CarForm = () => {
               toggleForm();
             }
           }}>
-            {isFormVisible ? 'Submit' : 'Add Car'}
+            {isFormVisible ? 'Submit' : 'Add Portfolio'}
           </button>
         </div>
       </div>
   );
 };
 
-export default CarForm;
+export default BankForm;

@@ -22,13 +22,14 @@ const HouseForm = () => {
       const name = form.elements.name.value;
       const homeValue = form.elements.assetWorth.value;
       const avgYearlyChange = form.elements.averageChange.value;
+      const assetType = 'house';
   
       if (!name || !homeValue || !avgYearlyChange) {
         setErrorMessage('Please fill all fields');
         return;
       }
   
-      dispatchFormValues({ type: 'ADD_VALUE', value: { name, homeValue, avgYearlyChange } });
+      dispatchFormValues({ type: 'ADD_VALUE', value: { name, homeValue, avgYearlyChange, assetType} });
       toggleForm();
       setErrorMessage('');
     }
