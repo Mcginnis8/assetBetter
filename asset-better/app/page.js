@@ -8,12 +8,22 @@ import Header from './Header.client';
 import AssetCards from './AssetCards.client';
 import GraphElement from './GraphElement.client';
 import FormValuesContext from './FormValuesContext.client';
-import React, { useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
 
 const formValuesReducer = (state, action) => {
   switch (action.type) {
     case 'ADD_VALUE':
       return [...state, action.value];
+    case 'ADJUST_FOR_INFLATION':
+      return state.map(formValue => ({
+        ...formValue,
+        avgYearlyChange: formValue.avgYearlyChange - 3,
+      }));
+    case 'UNADJUST_FOR_INFLATION':
+      return state.map(formValue => ({
+        ...formValue,
+        avgYearlyChange: formValue.avgYearlyChange + 3,
+      }));
     default:
       return state;
   }
@@ -21,6 +31,16 @@ const formValuesReducer = (state, action) => {
 
 export default function Home() {
   const [formValues, dispatchFormValues] = useReducer(formValuesReducer, []);
+  const [isAdjustedForInflation, setIsAdjustedForInflation] = useState(false);
+
+  const handleToggle = () => {
+    setIsAdjustedForInflation(!isAdjustedForInflation);
+    if (isAdjustedForInflation) {
+      dispatchFormValues({ type: 'UNADJUST_FOR_INFLATION' });
+    } else {
+      dispatchFormValues({ type: 'ADJUST_FOR_INFLATION' });
+    }
+  };
 
   return (
       <main className={styles.main}>
@@ -33,6 +53,15 @@ export default function Home() {
 
       <div className={styles.person}>
         <div className={styles.personBento}>
+          <label style={{width: '6.5rem'}}>
+            <input 
+              type="checkbox" 
+              checked={isAdjustedForInflation} 
+              onChange={handleToggle}
+              style={{ filter: 'brightness(70%)' }}
+            />
+            <span style={{ color: 'black' }}>Adjust for inflation</span>
+          </label>
           <div className={styles.imageContainer}>
             <Image src="/images/person.jpg" alt="Person" width={127} height={300} />
           </div>

@@ -97,8 +97,10 @@
   background-color: rgb(255, 253, 250);
   border-radius: 0.5rem;
   padding: 1rem;
-  padding-right: 2rem;
+  padding-right: 3rem;
+  padding-left: 3.8rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  max-width: 75vw;
 }
 
 .person {
@@ -123,4 +125,21 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
   margin-top: 1rem;
   margin-bottom: 2rem;
+}
+
+.selectDropdown {
+  width: 200px;
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+  padding: 10px;
+  padding-right: 20px;
+  font-size: 16px;
+  background: rgb(255, 216, 74) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="black" d="M2 0L0 2h4L2 0zm0 5L0 3h4l-2 2z"/></svg>') no-repeat;
+  background-position: right 7px center;
+  background-size: 10px;
+  color: black;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  appearance: none;
+  outline: none;
 }

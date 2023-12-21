@@ -75,7 +75,7 @@ const CarForm = () => {
               toggleForm();
             }
           }}>
-            {isFormVisible ? 'Submit' : 'Add Car'}
+            {isFormVisible ? 'Submit' : 'Add Vehicle'}
           </button>
         </div>
       </div>

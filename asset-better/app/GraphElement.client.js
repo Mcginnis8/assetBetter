@@ -1,11 +1,13 @@
 'use client';
 import { Chart, LineController, CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Title } from 'chart.js';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import styles from './page.module.css'
 
 Chart.register(LineController, CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Title);
 
 const GraphElement = ({ assets }) => {
     const chartRef = useRef(null);
+    const [selectedRange, setSelectedRange] = useState(20); // Default range is 20 years
   
     useEffect(() => {
       if (!assets || !Array.isArray(assets)) {
@@ -14,6 +16,7 @@ const GraphElement = ({ assets }) => {
   
       if (chartRef.current) {
         chartRef.current.destroy();
+        chartRef.current = null;
       }
 
       function getRandomColor() {
@@ -25,7 +28,7 @@ const GraphElement = ({ assets }) => {
   
       const ctx = document.getElementById('myChart').getContext('2d');
       const currentYear = new Date().getFullYear();
-      const labels = Array.from({length: 31}, (_, i) => currentYear + i);
+      const labels = Array.from({length: selectedRange + 1}, (_, i) => currentYear + i);
       const datasets = assets.map(asset => ({
         label: asset.name,
         data: labels.map(x => parseFloat(asset.homeValue * Math.pow((1 + asset.avgYearlyChange / 100), (x - currentYear))).toFixed(2)),
@@ -36,7 +39,7 @@ const GraphElement = ({ assets }) => {
       const totalLine = {
         label: 'Total',
         data: labels.map((_, i) => parseFloat(datasets.reduce((total, dataset) => total + parseFloat(dataset.data[i]), 0).toFixed(2))),
-        borderColor: 'red',
+        borderColor: 'rgb(255, 216, 74)',
         fill: false,
       };
       datasets.push(totalLine);
@@ -55,8 +58,8 @@ const GraphElement = ({ assets }) => {
               text: 'Assets over time',
               font: {
                 size: 40,
-                color: 'black',
               },
+              color: 'black',
             },
           },
           scales: {
@@ -66,8 +69,8 @@ const GraphElement = ({ assets }) => {
                 text: 'Years',
                 font: {
                   size: 30,
-                  color: 'black',
                 },
+                color: 'black',
               },
             },
             y: {
@@ -76,17 +79,27 @@ const GraphElement = ({ assets }) => {
                 text: 'USD$',
                 font: {
                   size: 30,
-                  color: 'black',
                 },
+                color: 'black',
               },
             },
           },
         },
       });
-    }, [assets]);
-  
-    return <canvas id="myChart" style={{ width: '70vw', height: '15vh', marginTop: '1rem' }}></canvas>;
-
+    }, [assets, selectedRange]);
+    
+    return (
+        <>
+          <select className={styles.selectDropdown} value={selectedRange} onChange={e => setSelectedRange(Number(e.target.value))}>
+            <option value={5}>5 years</option>
+            <option value={10}>10 years</option>
+            <option value={20}>20 years</option>
+            <option value={30}>30 years</option>
+            <option value={50}>50 years</option>
+          </select>
+          <canvas id="myChart" style={{ width: '70vh', height: '15vh', marginTop: '1rem' }}></canvas>
+        </>
+      );
   };
 
 export default GraphElement;
