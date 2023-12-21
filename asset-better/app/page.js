@@ -24,6 +24,8 @@ const formValuesReducer = (state, action) => {
         ...formValue,
         avgYearlyChange: formValue.avgYearlyChange + 3,
       }));
+    case 'DELETE_ASSET':
+      return state.filter(asset => asset.id !== action.id);
     default:
       return state;
   }
@@ -66,7 +68,7 @@ export default function Home() {
             <Image src="/images/person.jpg" alt="Person" width={127} height={300} />
           </div>
           <Header/>
-        <AssetCards assets={formValues} />
+        <AssetCards assets={formValues} dispatchFormValues={dispatchFormValues} />
       </div>
       </div>
       <div className={styles.graph}>

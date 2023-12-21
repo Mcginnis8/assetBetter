@@ -18,7 +18,6 @@ const HeaderContent = () => {
     setProjectedYearlyProfit(projectedProfit);
   }, [formValues]);
 
-  console.log(formValues);
 
   return (
     <h1 style={{ color: 'black', fontWeight: 'bold', height: '150px', marginTop: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

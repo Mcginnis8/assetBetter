@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useContext, useEffect, useRef } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import styles from './page.module.css'
 import FormValuesContext from './FormValuesContext.client';
 
@@ -7,11 +7,6 @@ const HouseForm = () => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const { formValues, dispatchFormValues } = useContext(FormValuesContext);
   const formRef = useRef(null);
-
-
-  useEffect(() => {
-    console.log(formValues);
-  }, [formValues]);
 
   const [errorMessage, setErrorMessage] = useState('');
 

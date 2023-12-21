@@ -1,11 +1,15 @@
 "use client";
-import React, { useEffect } from 'react';
+import React from 'react';
 import Card from './Card';
 
-const AssetCards = ({ assets }) => {
+const AssetCards = ({ assets, dispatchFormValues }) => {
   if (!assets || !Array.isArray(assets)) {
     return null;
   }
+
+  const handleDelete = (id) => {
+    dispatchFormValues({ type: 'DELETE_ASSET', id });
+  };
 
   const totalValue = assets.reduce((total, asset) => {
     let homeValue = parseFloat(asset.homeValue);
@@ -17,15 +21,11 @@ const AssetCards = ({ assets }) => {
     return total + homeValue;
   }, 0);
 
-  useEffect(() => {
-    console.log('Total value:', totalValue);
-  }, [assets]);
-
   return (
-    <div style={{ display: 'flex', flexDirection: 'row', overflowX: 'auto', whiteSpace: 'nowrap', marginLeft: '0.8rem' }}>
+    <div style={{ display: 'flex', flexDirection: 'row', overflowX: 'auto', whiteSpace: 'nowrap'}}>
       {assets.map((asset, index) => (
-        <Card key={index} asset={asset} totalValue={totalValue} />
-      ))}
+    <Card key={`${asset.id}-${index}`} asset={asset} totalValue={totalValue} onDelete={handleDelete} />
+    ))}
     </div>
   );
 };
