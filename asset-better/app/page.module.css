@@ -85,3 +85,42 @@
 .customInput:focus {
   border-bottom: 2px solid black;
 }
+
+.graph {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+  border: 1px solid #ccc;
+  background-color: rgb(255, 253, 250);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  padding-right: 2rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.person {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.personBento {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 70vw;
+  border: 1px solid #ccc;
+  background-color: rgb(255, 253, 250);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
