@@ -77,6 +77,11 @@ const GraphElement = ({ assets }) => {
                 },
                 color: 'black',
               },
+              ticks: {
+                font: {
+                    size: vwToPixel(1),
+                },
+              },
             },
             y: {
               title: {
@@ -86,6 +91,11 @@ const GraphElement = ({ assets }) => {
                   size: vwToPixel(1.5),
                 },
                 color: 'black',
+              },
+              ticks: {
+                font: {
+                    size: vwToPixel(1),
+                },
               },
             },
           },
