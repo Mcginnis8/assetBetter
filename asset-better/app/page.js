@@ -55,17 +55,17 @@ export default function Home() {
 
       <div className={styles.person}>
         <div className={styles.personBento}>
-          <label style={{width: '6.5rem'}}>
+        <label style={{width: '15vw', display: 'flex', alignItems: 'center'}}>
             <input 
               type="checkbox" 
               checked={isAdjustedForInflation} 
               onChange={handleToggle}
-              style={{ filter: 'brightness(70%)' }}
+              style={{ filter: 'brightness(70%)', width: '2vw', height: '2vw', marginRight: '0.2vw' }}
             />
-            <span style={{ color: 'black' }}>Adjust for inflation</span>
+            <span style={{ color: 'black', fontSize: "1.3vw" }}>Adjust for inflation</span>
           </label>
           <div className={styles.imageContainer}>
-            <Image src="/images/person.jpg" alt="Person" width={127} height={300} />
+            <Image src="/images/person.jpg" alt="Person" width={127} height={300} style={{width: '8.2vw', height: '19.5vw'}} />
           </div>
           <Header/>
         <AssetCards assets={formValues} dispatchFormValues={dispatchFormValues} />

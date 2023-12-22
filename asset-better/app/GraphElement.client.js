@@ -43,6 +43,10 @@ const GraphElement = ({ assets }) => {
         fill: false,
       };
       datasets.push(totalLine);
+
+      const vwToPixel = (value) => {
+        return value * window.innerWidth / 100;
+      }
   
       chartRef.current = new Chart(ctx, {
         type: 'line',
@@ -52,12 +56,13 @@ const GraphElement = ({ assets }) => {
         },
         options: {
           responsive: true,
+          maintainAspectRatio: false,
           plugins: {
             title: {
               display: true,
               text: 'Assets over time',
               font: {
-                size: 40,
+                size: vwToPixel(2.5),
               },
               color: 'black',
             },
@@ -68,7 +73,7 @@ const GraphElement = ({ assets }) => {
                 display: true,
                 text: 'Years',
                 font: {
-                  size: 30,
+                  size: vwToPixel(1.5),
                 },
                 color: 'black',
               },
@@ -78,7 +83,7 @@ const GraphElement = ({ assets }) => {
                 display: true,
                 text: 'USD$',
                 font: {
-                  size: 30,
+                  size: vwToPixel(1.5),
                 },
                 color: 'black',
               },
@@ -97,7 +102,7 @@ const GraphElement = ({ assets }) => {
             <option value={30}>30 years</option>
             <option value={50}>50 years</option>
           </select>
-          <canvas id="myChart" style={{ width: '70vh', height: '15vh', marginTop: '1rem' }}></canvas>
+          <canvas id="myChart" style={{ width: '90%', height: '90%', aspectRatio: 'auto'}}></canvas>
         </>
       );
   };

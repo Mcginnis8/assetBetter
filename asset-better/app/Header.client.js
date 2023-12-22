@@ -20,7 +20,7 @@ const HeaderContent = () => {
 
 
   return (
-    <h1 style={{ color: 'black', fontWeight: 'bold', height: '150px', marginTop: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <h1 style={{ color: 'black', fontWeight: 'bold', height: '10vw', marginTop: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2vw' }}>
       Total Asset Value: ${totalHomeValue}<br></br>Avg Yearly Change: {latestAvgYearlyChange}%<br></br>Current Yearly Profit: ${projectedYearlyProfit}
     </h1>
   );

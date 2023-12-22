@@ -38,7 +38,7 @@ const CarForm = () => {
       <div className={styles.imageButtonPair}>
         <div className={styles.imageContainer}>
           {isFormVisible ? (
-            <form style={{ width: '300px', height: '300px' }} onSubmit={handleSubmit} ref={formRef}>
+            <form style={{ width: '20vw', height: '24vw' }} onSubmit={handleSubmit} ref={formRef}>
               <label className={styles.customLabel}>
                 Name:
                 <input className={styles.customInput} type="text" name="name" style={{ width: '80%' }} required />
@@ -51,15 +51,15 @@ const CarForm = () => {
                 Avg Yearly Change:
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                   <input className={styles.customInput} type="number" name="averageChange" style={{ width: '40%' }} required />
-                  <span style={{ color: 'black', fontSize: '1.5rem', fontWeight: 'bold' }}>%</span>
+                  <span style={{ color: 'black', fontSize: '1.5vw', fontWeight: 'bold' }}>%</span>
                 </div>
               </label>
             </form>
           ) : (
-            <img src="/images/car.jpg" alt="Car" width={300} height={300}></img>
+            <img src="/images/car.jpg" alt="Car" style={{width: '24vw', height: '24vw'}}></img>
           )}
         </div>
-        {errorMessage && <div style={{ color: 'red', fontSize: '1.5rem' }}>{errorMessage}</div>}
+        {errorMessage && <div style={{ color: 'red', fontSize: '2vw' }}>{errorMessage}</div>}
         <div className={styles.buttonContainer}>
           <button className={styles.button} style={{ maxWidth: '300px' }} onClick={() => { 
             if (isFormVisible) {

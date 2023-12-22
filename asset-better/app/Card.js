@@ -6,9 +6,9 @@ const Card = ({ asset, totalValue, onDelete }) => {
     return (
         <div style={{ 
             position: 'relative',
-            padding: '15px',
-            width: '190px',
-            margin: '10px', 
+            padding: '1vw',
+            width: '17vw',
+            margin: '1vw', 
             color: 'black', 
             border: '1px solid #ccc',
             backgroundColor: 'rgb(255, 253, 250)',
@@ -17,9 +17,9 @@ const Card = ({ asset, totalValue, onDelete }) => {
         }}>
             <button onClick={() => onDelete(asset.id)} style={{ position: 'absolute', top: '4px', right: '4px', backgroundColor: '#fefefe', color: 'black', border: 'none' }}>X</button>
             <img src={`/images/${asset.assetType}.jpg`} alt={asset.name} style={{ width: '100%', height: 'auto'}} />
-            <h2>{asset.name}</h2>
-            <p>Yrly Change Pct: {asset.avgYearlyChange}%</p>
-            <p>Portfolio Pct: {assetPercentage}%</p>
+            <h2 style={{fontSize: '2.5vw'}}>{asset.name}</h2>
+            <p style={{fontSize: '1.5vw'}}>Yrly Change Pct: {asset.avgYearlyChange}%</p>
+            <p style={{fontSize: '1.5vw'}}>Portfolio Pct: {assetPercentage}%</p>
         </div>
     );
 };

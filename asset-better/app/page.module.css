@@ -1,7 +1,6 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: flex-start;
   padding: 6vw;
   min-height: 100vh;
@@ -11,14 +10,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 350px;
+  width: 26vw;
   border: 1px solid #ccc;
   background-color: rgb(255, 253, 250);
   border-radius: 0.5rem;
   padding: 1rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: 1vw;
+  margin-right: 1vw;
 }
 
 
@@ -43,12 +42,12 @@
   position: relative;
   background-color: black;
   color: white;
-  width: 80vw;
-  height: 6vh;
+  width: 25vw;
+  height: 4vw;
   margin-top: 1rem;
   margin-bottom: 1rem;
   border-radius: 0.2rem;
-  font-size: 1.5rem;
+  font-size: 2vw;
   font-weight: bold;
   text-align: center;
   align-items: center;
@@ -63,13 +62,13 @@
 .customLabel {
   color: black;
   font-weight: bold;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 2vw;
   display: flex;
   justify-content: center;
   align-items: stretch;
   flex-direction: column;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5vw;
+  margin-top: 2vw;
 }
 
 .customInput {
@@ -77,8 +76,7 @@
   border:none;
   border-bottom: 1px solid black;
   color: black;
-  font-size: 1.5rem;
-  margin-top: 0.8rem;
+  font-size: 2vw;
   outline: none;
 }
 
@@ -89,18 +87,18 @@
 .graph {
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: center;
   margin: auto;
+  margin-top: 1vh;
   align-items: center;
   border: 1px solid #ccc;
   background-color: rgb(255, 253, 250);
   border-radius: 0.5rem;
-  padding: 1rem;
-  padding-right: 3rem;
-  padding-left: 3.8rem;
+  padding-right: 5vw;
+  padding-left: 5vw;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-  max-width: 75vw;
+  width: 75vw;
+  height: 50vh;
 }
 
 .person {
@@ -108,7 +106,8 @@
   flex-direction: row;
   align-items: center;
   margin: auto;
-  margin-top: 1rem;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
 }
 
 .personBento {
@@ -123,21 +122,20 @@
   padding-top: 0;
   padding-bottom: 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-top: 1vh;
 }
 
 .selectDropdown {
-  width: 200px;
-  height: 40px;
+  width: 9vw;
+  height: 3.6vw;
   border-radius: 8px;
   border: none;
-  padding: 10px;
-  padding-right: 20px;
-  font-size: 16px;
+  padding: 0.9vw;
+  padding-right: 1.8vw;
+  font-size: 1.5vw;
   background: rgb(255, 216, 74) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="black" d="M2 0L0 2h4L2 0zm0 5L0 3h4l-2 2z"/></svg>') no-repeat;
-  background-position: right 7px center;
-  background-size: 10px;
+  background-position: right 0.6vw center;
+  background-size: 1vw;
   color: black;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   appearance: none;
